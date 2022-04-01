@@ -28,7 +28,7 @@
 							</div>
 			@if ($errors->has('username'))
     
-      <span class="alert alert-danger">@error('username') {{$message}} @enderror</span><br><br>
+      <span class="alert text-danger">@error('username') {{$message}} @enderror</span><br><br>
 
 
  @endif
@@ -38,7 +38,7 @@
 			</div>
 			@if ($errors->has('email'))
     
-      <span class="alert alert-danger">@error('email') {{$message}} @enderror</span><br><br><br><br>
+      <span class="alert text-danger">@error('email') {{$message}} @enderror</span><br><br>
 
 
  @endif
@@ -49,7 +49,7 @@
             </div>
             @if ($errors->has('password'))
     
-      <span class="alert text-danger">@error('password') {{$message}} @enderror</span><br><br><br><br>
+      <span class="alert text-danger">@error('password') {{$message}} @enderror</span><br><br>
 
  @endif
 
@@ -60,7 +60,7 @@
 	     </div>
 			@if ($errors->has('cpassword'))
     
-      <span class="alert alert-danger">@error('cpassword') {{$message}} @enderror</span><br><br><br><br>
+      <span class="alert text-danger">Doesn't Match with Password</span><br><br>
 
 
  @endif

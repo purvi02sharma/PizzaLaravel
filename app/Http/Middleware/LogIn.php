@@ -18,7 +18,7 @@ class LogIn
     {
         if(Session()->has('loginId') && ((url('login')==$request->url()) || (url('register')==$request->url())))
         {
-                return back();
+                return redirect('menu');
         }
         return $next($request);
     }

@@ -29,6 +29,16 @@ Route::post('/login-user',[AuthController::class,'loginUser'])->name('login-user
 
 Route::get('/menu',[AuthController::class,'menu'])->middleware('isLoggedIn');
 
+Route::get('/home',[AuthController::class,'home'])->middleware('isLoggedIn');
+
+Route::get('/contact',[AuthController::class,'contact'])->middleware('isLoggedIn');
+
+Route::get('about',[AuthController::class,'about'])->middleware('isLoggedIn');
+
+Route::get('/visit',[AuthController::class,'visit']);
+
+Route::get('/profile',[AuthController::class,'profile'])->middleware('isLoggedIn');
+
 Route::get('/logout',[AuthController::class,'logout']);
 
 Route::post('/send-email',[AuthController::class,'sendEmail'])->name('send-message');

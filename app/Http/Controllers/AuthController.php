@@ -24,7 +24,7 @@ class AuthController extends Controller
 
     public function registerUser(Request $req)
     {
-           $req->validate(['username'=>'required', 'email'=>'required|unique:users', 'password'=>'required|min:6','cpassword'=>'required|same:password']);
+           $req->validate(['username'=>'required', 'email'=>'required|unique:users|email:rfc,dns', 'password'=>'required|min:6','cpassword'=>'required|same:password']);
     $user = new User();
     $user->name= $req->username;
     $user->email=$req->email;
@@ -71,12 +71,59 @@ if(Session::has('loginId'))
     return view('menu',compact('data'));
   }
 
+   public function home()
+  {
+$data=array();
+if(Session::has('loginId'))
+{
+    $data=User::where('id','=',Session::get('loginId'))->first();
+}
+    return view('home',compact('data'));
+  }
+ public function contact()
+  {
+$data=array();
+if(Session::has('loginId'))
+{
+    $data=User::where('id','=',Session::get('loginId'))->first();
+}
+    return view('contact',compact('data'));
+  }
+
+   public function about()
+  {
+$data=array();
+if(Session::has('loginId'))
+{
+    $data=User::where('id','=',Session::get('loginId'))->first();
+}
+    return view('about',compact('data'));
+  }
+
+public function profile()
+  {
+$data=array();
+if(Session::has('loginId'))
+{
+    $data=User::where('id','=',Session::get('loginId'))->first();
+}
+    return view('profile',compact('data'));
+  }
+
+
+public function visit()
+  {
+
+    return view('visit');
+  }
+
+
   public function logout()
   {
     if(Session::has('loginId'))
     {
         Session::pull('loginId');
-        return redirect('login');
+        return redirect('visit');
     }
   }
 
